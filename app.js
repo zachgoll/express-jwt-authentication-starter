@@ -1,8 +1,6 @@
 const express = require('express');
-const mongoose = require('mongoose');
-var passport = require('passport');
-var routes = require('./routes');
-const connection = require('./config/database');
+const cors = require('cors');
+const path = require('path');
 
 /**
  * -------------- GENERAL SETUP ----------------
@@ -14,6 +12,10 @@ require('dotenv').config();
 // Create the Express application
 var app = express();
 
+// Configures the database and opens a global connection that can be used in any module with `mongoose.connection`
+require('./config/database');
+
+// Instead of using body-parser middleware, use the new Express implementation of the same thing
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
@@ -29,8 +31,11 @@ app.use(express.static(path.join(__dirname, 'public')));
  * -------------- ROUTES ----------------
  */
 
+// Must first load the models
+require('./models/user');
+
 // Imports all of the routes from ./routes/index.js
-app.use(routes);
+app.use(require('./routes'));
 
 
 /**
