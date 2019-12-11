@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const passport = require('passport');
 
 /**
  * -------------- GENERAL SETUP ----------------
@@ -33,6 +34,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Must first load the models
 require('./models/user');
+
+// Pass the global passport object into the configuration function
+require('./config/passport')(passport);
+
+// This will initialize the passport object on every request
+app.use(passport.initialize());
 
 // Imports all of the routes from ./routes/index.js
 app.use(require('./routes'));
