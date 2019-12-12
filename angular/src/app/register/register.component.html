@@ -1,0 +1,11 @@
+<h2>Register</h2>
+
+<form (ngSubmit)="onRegisterSubmit()" #registerform="ngForm">
+  <div>
+    <p>Enter a username</p>
+    <input type="text" name="username" ngModel>
+    <p>Enter a password</p>
+    <input type="password" name="password" ngModel>
+  </div>
+  <button style="margin-top: 20px;" type="submit">Register</button>
+</form>

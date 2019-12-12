@@ -5,7 +5,7 @@ const passport = require('passport');
 const utils = require('../lib/utils');
 
 router.get('/protected', passport.authenticate('jwt', { session: false }), (req, res, next) => {
-    res.send('yes');
+    res.status(200).json({ success: true, msg: "You are successfully authenticated to this route!"});
 });
 
 // Validate an existing user and issue a JWT
@@ -23,7 +23,9 @@ router.post('/login', function(req, res, next){
             
             if (isValid) {
 
-                res.status(200).json({ "success": true, "token": utils.issueJWT(user) });
+                const tokenObject = utils.issueJWT(user);
+
+                res.status(200).json({ success: true, token: tokenObject.token, expiresIn: tokenObject.expires });
 
             } else {
 
@@ -32,7 +34,7 @@ router.post('/login', function(req, res, next){
             }
 
         })
-        .catch((err) => {   
+        .catch((err) => {
             next(err);
         });
 });
