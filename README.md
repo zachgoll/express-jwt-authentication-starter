@@ -1,34 +1,19 @@
-## Blog Post
+## How to use this Repo
 
-This repository accompanies [this blog post](https://zachgoll.github.io/blog/2019/choosing-authentication-strategy/) that explains all the code in it.
+This repo has two branches:
 
-## Setup
+* master
+* final
 
-The Express application requires a `.env` file and a public/private keypair.  In the root of the project, create a `.env` file and put the following into it:
+The `master` branch has a starter template for creating what is in the `final` branch.
 
-```
-NODE_ENV=development
-DB_STRING=<your db string>
-DB_STRING_PROD=<your db string>
-```
+There is an Angular app included, but is entirely optional.  Since JWT authentication is commonly seen in SPAs (single page applications) like Angular, I decided it was important to at least have a basic implementation.
 
-Next, you will need to generate a public/private keypair.  The `.gitignore` automatically ignores the private key.
+## How to run the app
 
-```
-node generateKeypair.js
-```
+When you go to each branch, the `README.md` will show you how to start the app.
 
-Note that to run the script, you will need a NodeJS version greater than v10.x.
+The `master` branch is incomplete and you can follow the written or video tutorials to complete:
 
-## Quickstart
-
-This app is a skeleton application and is not ready for production.  To start the app, you will need to run both an Express server and the Angular server.
-
-```
-# Start the Express server (http://localhost:3000)
-node app.js
-
-# Start the angular server (http://localhost:4200)
-cd angular/
-ng serve
-```
+* Written - https://zachgoll.github.io/blog/2019/choosing-authentication-strategy/
+* Video - Coming soon

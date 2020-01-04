@@ -22,6 +22,9 @@ require('./models/user');
 // Pass the global passport object into the configuration function
 require('./config/passport')(passport);
 
+// This will initialize the passport object on every request
+app.use(passport.initialize());
+
 // Instead of using body-parser middleware, use the new Express implementation of the same thing
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -37,9 +40,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 /**
  * -------------- ROUTES ----------------
  */
-
-// This will initialize the passport object on every request
-app.use(passport.initialize());
 
 // Imports all of the routes from ./routes/index.js
 app.use(require('./routes'));
