@@ -12,6 +12,8 @@ DB_STRING=<your db string>
 DB_STRING_PROD=<your db string>
 ```
 
+You will also need to start the Mongo DB database using the `mongod` process.  I run this process persistently in the background, but you could also just type `mongod` in your terminal (assuming you have Mongo DB installed).
+
 Next, you will need to generate a public/private keypair.  The `.gitignore` automatically ignores the private key.
 
 ```
@@ -22,7 +24,7 @@ Note that to run the script, you will need a NodeJS version greater than v10.x.
 
 ## Quickstart
 
-This app is a skeleton application and is not ready for production.  To start the app, you will need to run both an Express server and the Angular server.
+To start the app, you will need to run both an Express server and the Angular server, and then visit `http://localhost:4200` in the browser.
 
 ```
 # Start the Express server (http://localhost:3000)
