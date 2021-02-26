@@ -1,6 +1,6 @@
 ## Blog Post
 
-This repository accompanies [this blog post](https://zachgoll.github.io/blog/2019/choosing-authentication-strategy/) that explains all the code in it.
+This repository accompanies [this blog post](https://www.zachgollwitzer.com/posts/2020/passport-js/) that explains all the code in it.
 
 ## Setup
 
@@ -12,7 +12,7 @@ DB_STRING=<your db string>
 DB_STRING_PROD=<your db string>
 ```
 
-You will also need to start the Mongo DB database using the `mongod` process.  I run this process persistently in the background, but you could also just type `mongod` in your terminal (assuming you have Mongo DB installed).
+You will also need to start the Mongo DB database using the `mongod` process.  I run this process persistently in the background, but you could also just type `mongod` in your terminal (assuming you have Mongo DB installed and are on a UNIX based OS).
 
 Next, you will need to generate a public/private keypair.  The `.gitignore` automatically ignores the private key.
 
