@@ -15,7 +15,7 @@ router.post('/login', function(req, res, next){
         .then((user) => {
 
             if (!user) {
-                res.status(401).json({ success: false, msg: "could not find user" });
+                return res.status(401).json({ success: false, msg: "could not find user" });
             }
             
             // Function defined at bottom of app.js
