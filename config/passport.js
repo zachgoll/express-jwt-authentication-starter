@@ -22,7 +22,7 @@ module.exports = (passport) => {
         console.log(jwt_payload);
         
         // We will assign the `sub` property on the JWT to the database ID of user
-        User.findOne({_id: jwt_payload.sub}, function(err, user) {
+        User.findOne({_id: jwt_payload.sub}, function(user,err) {
             
             // This flow look familiar?  It is the same as when we implemented
             // the `passport-local` strategy
